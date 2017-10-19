@@ -12,20 +12,50 @@ public class SessionData
 
 public class GameManager : MonoBehaviour {
 
-	public TMP_Text gameTimer;
-	PickupManager pickupManager;
+	public enum GameState
+	{
+		none,
+		menu,
+		playing
+	}
 
+	public GameState currentState;
+
+	public GameObject menuUIElement;
+
+	public GameObject gameUIElement;
+	public TMP_Text gameTimer;
+
+	PickupManager pickupManager;
 	SessionData sessionData;
 
 	// Use this for initialization
 	void Start ()
 	{
 		pickupManager = GetComponent<PickupManager>();
-		StartGame();
+		switch( currentState )
+		{
+		case GameState.menu:
+			ShowMenu();
+			break;
+		case GameState.playing:
+			StartGame();
+			break;
+		default:
+			break;
+		}
+	}
+
+	private void ShowMenu()
+	{
+		menuUIElement.SetActive( true );
+		gameUIElement.SetActive( false );
 	}
 
 	private void StartGame()
 	{
+		menuUIElement.SetActive( false );
+		gameUIElement.SetActive( true );
 		sessionData = new SessionData
 		{
 			gameEndTime = Time.time + 60f
@@ -35,14 +65,16 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
-		if( sessionData == null)
-			return;
-		
-		gameTimer.SetText( SplashJam.Utils.GetSecondsAndMinutesText( sessionData.gameEndTime - Time.time, 20f ) );
+		InGameUpdate();
 	}
 
+	private void InGameUpdate()
+	{
+		if( sessionData == null )
+			return;
 
-
+		gameTimer.SetText( SplashJam.Utils.GetSecondsAndMinutesText( sessionData.gameEndTime - Time.time, 20f ) );
+	}
 }

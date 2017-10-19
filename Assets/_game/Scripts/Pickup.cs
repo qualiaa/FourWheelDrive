@@ -29,10 +29,8 @@ public class Pickup : MonoBehaviour {
 		string secondsText = SplashJam.Utils.GetSecondsAndMinutesText( time, decialTextSize );
 		textMesh.SetText( secondsText );
 
-		if( !blinking && time <= secondsLeftForBlink )
-		{
+		if( !blinking && time <= secondsLeftForBlink)
 			StartBlinking();
-		}
 
 		if( time <= 0f )
 			Destroy( this.gameObject );
@@ -46,7 +44,6 @@ public class Pickup : MonoBehaviour {
 	void StartBlinking()
 	{
 		blinking = true;
-
 		DOTween.To( () => textAlpha, x => textAlpha = x, 1f, 0.5f ).SetLoops( -1 ).OnUpdate( SetTextColor );
 	}
 
