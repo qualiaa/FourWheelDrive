@@ -12,6 +12,9 @@ public class SessionData
 
 public class GameManager : MonoBehaviour {
 
+	public static GameManager gm;
+	private void Awake() { gm = this; }
+
 	public enum GameState
 	{
 		none,
@@ -52,7 +55,7 @@ public class GameManager : MonoBehaviour {
 		gameUIElement.SetActive( false );
 	}
 
-	private void StartGame()
+	public void StartGame()
 	{
 		menuUIElement.SetActive( false );
 		gameUIElement.SetActive( true );
