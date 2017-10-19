@@ -18,20 +18,19 @@ public class Pickup : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
 		time -= Time.deltaTime;
+		float decialTextSize = 5f;
 
-		float timeDecimals = ( time - Mathf.Floor( time ) ) * 100f;
+		string secondsText = SplashJam.Utils.GetSecondsAndMinutesText( time, decialTextSize );
+		textMesh.SetText( secondsText );
 
-		textMesh.SetText( string.Format( 
-		                                "{0}<size=5>.{1}</size>", 
-		                                time.ToString( "0" ), 
-		                                timeDecimals.ToString( "00" ).Substring( 0, 2 ) ) );
-
-		if( time <= 0f)
+		if( time <= 0f )
 			Destroy( this.gameObject );
 	}
+
+
 
 	void StartBlinking()
 	{
