@@ -8,6 +8,7 @@ public class SessionData
 {
 	public int pickupsCollected;
 	public float gameEndTime;
+	public bool isPlaying;
 }
 
 public class GameManager : MonoBehaviour {
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour {
 
 	PickupManager pickupManager;
 	SessionData sessionData;
+
+	public delegate void OnGameEnd();
+	public static event OnGameEnd OnGameEndMethods;
 
 	// Use this for initialization
 	void Start ()
@@ -61,7 +65,8 @@ public class GameManager : MonoBehaviour {
 		gameUIElement.SetActive( true );
 		sessionData = new SessionData
 		{
-			gameEndTime = Time.time + 60f
+			gameEndTime = Time.time + 10f,
+			isPlaying = true
 		};
 
 		pickupManager.StartSpawning();
@@ -75,9 +80,31 @@ public class GameManager : MonoBehaviour {
 
 	private void InGameUpdate()
 	{
-		if( sessionData == null )
+		if( !IsPlaying() )
 			return;
 
 		gameTimer.SetText( SplashJam.Utils.GetSecondsAndMinutesText( sessionData.gameEndTime - Time.time, 20f ) );
+
+		if( sessionData.gameEndTime <= Time.time)
+			EndGame();
+	}
+
+	void EndGame()
+	{
+		sessionData.isPlaying = false;
+		gameUIElement.SetActive( false );
+		if( OnGameEndMethods != null)
+			OnGameEndMethods();
+	}
+
+	public bool IsPlaying()
+	{
+		if( sessionData == null )
+			return false;
+
+		if( !sessionData.isPlaying )
+			return false;
+
+		return true;
 	}
 }

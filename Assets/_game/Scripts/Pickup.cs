@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class Pickup : MonoBehaviour {
 
@@ -51,4 +52,20 @@ public class Pickup : MonoBehaviour {
 	{
 		textMesh.color = textAlpha > .5f ? textColor0 : textColor1;
 	}
+
+	private void OnEnable()
+	{
+		GameManager.OnGameEndMethods += OnGameEnd;
+	}
+
+	private void OnDisable()
+	{
+		GameManager.OnGameEndMethods -= OnGameEnd;
+	}
+	
+	private void OnGameEnd()
+	{
+		Destroy( gameObject );
+	}
+
 }
