@@ -22,9 +22,12 @@ public class Pickup : MonoBehaviour {
 	{
 		time -= Time.deltaTime;
 
-		float timeDecimals = ( time - Mathf.Floor( time ) ) * 100;
+		float timeDecimals = ( time - Mathf.Floor( time ) ) * 100f;
 
-		textMesh.SetText( string.Format( "{0}<size=5>.{1}</size>", time.ToString("0"), timeDecimals.ToString( "00" ) ) );
+		textMesh.SetText( string.Format( 
+		                                "{0}<size=5>.{1}</size>", 
+		                                time.ToString( "0" ), 
+		                                timeDecimals.ToString( "00" ).Substring( 0, 2 ) ) );
 
 		if( time <= 0f)
 			Destroy( this.gameObject );
