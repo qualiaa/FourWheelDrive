@@ -16,10 +16,6 @@ public class PickupManager : MonoBehaviour
 		SpawnPickupsAndSetNewTime();
 	}
 
-	/// <summary>
-	/// Spawns the pickup.
-	/// </summary>
-	/// <returns>The pickup.</returns>
 	private float SpawnPickup()
 	{
 		float destroyTime = Random.Range( 10f, 15f );
