@@ -20,6 +20,7 @@ public class WheelParticle : MonoBehaviour {
 	{
 		wheel = GetComponentInParent<Wheel>();
 		rb = GetComponentInParent<Rigidbody>();
+		animator.SetFloat( "CycleOffset", UnityEngine.Random.Range( 0f, 1f ) );
 	}
 
 	// Update is called once per frame
