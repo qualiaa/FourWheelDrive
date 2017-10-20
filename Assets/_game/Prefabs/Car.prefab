@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988845078814774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.074, z: 0}
+  m_LocalPosition: {x: 0, y: 0.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4486737694367976}
@@ -418,28 +418,28 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317267625988482}
-  m_Mesh: {fileID: 4300002, guid: 16e634338af2d7540af6767d4a73d8de, type: 3}
+  m_Mesh: {fileID: 4300002, guid: c35e7a765d4020f46bcd769e8ba6d6bd, type: 3}
 --- !u!33 &33670823882927606
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1195296957990502}
-  m_Mesh: {fileID: 4300004, guid: 16e634338af2d7540af6767d4a73d8de, type: 3}
+  m_Mesh: {fileID: 4300006, guid: c35e7a765d4020f46bcd769e8ba6d6bd, type: 3}
 --- !u!33 &33722695316522416
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654287900076606}
-  m_Mesh: {fileID: 4300006, guid: 16e634338af2d7540af6767d4a73d8de, type: 3}
+  m_Mesh: {fileID: 4300004, guid: c35e7a765d4020f46bcd769e8ba6d6bd, type: 3}
 --- !u!33 &33997107560179066
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1754990252270736}
-  m_Mesh: {fileID: 4300000, guid: 16e634338af2d7540af6767d4a73d8de, type: 3}
+  m_Mesh: {fileID: 4300000, guid: c35e7a765d4020f46bcd769e8ba6d6bd, type: 3}
 --- !u!54 &54865125992447284
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -496,8 +496,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 2
-  moveSpeed: 3
   maxRotation: 35
+  power: 0
 --- !u!114 &114707773200462760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,8 +510,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 3
-  moveSpeed: 3
   maxRotation: 35
+  power: 0
 --- !u!114 &114780381824028642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -524,8 +524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 1
-  moveSpeed: 3
   maxRotation: 45
+  power: 0
 --- !u!114 &114895164424722042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,8 +555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerId: 0
-  moveSpeed: 3
   maxRotation: 45
+  power: 0
 --- !u!146 &146258954810606894
 WheelCollider:
   m_ObjectHideFlags: 1
