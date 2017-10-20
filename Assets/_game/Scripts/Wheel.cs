@@ -7,7 +7,31 @@ public class Wheel : MonoBehaviour {
 
 	public int playerId = 0; // The Rewired player id of this character
 
+
 	public float moveSpeed = 3.0f;
+	float maxRotation = 45;
+	float power = 0;
+	float angle = 0;
+    float powerMultiplier = 5;
+
+    public Vector3 direction
+    {
+        get {
+            return new Vector3 (Mathf.Sin(angle * Mathf.PI / 180), 0, Mathf.Cos(angle * Mathf.PI / 180));
+        }
+    }
+	public Vector3 totalForce
+	{
+		get { 
+			Debug.Log("Power: " + power);
+			return new Vector3 (Mathf.Sin(angle * Mathf.PI / 180) * power, 0, Mathf.Cos(angle * Mathf.PI / 180) * power);
+		}
+	}
+
+	public float steerAmount
+	{
+		get { return angle; } //  angle / (1 + velocity) ; }
+	}	
 
 	private Player player; // The Rewired Player
 	private float steerInput;
@@ -22,6 +46,8 @@ public class Wheel : MonoBehaviour {
 	void Update () {
 		GetInput();
 		ProcessInput();
+		var euler = Quaternion.Euler (new Vector3 (0,angle, 0));
+		transform.localRotation = euler;
 	}
 
 	private void GetInput() {
@@ -34,10 +60,21 @@ public class Wheel : MonoBehaviour {
 
 	private void ProcessInput() {
 		// Process movement
-		if( ( Mathf.Abs( steerInput ) > 0.1f
-			 || Mathf.Abs( gasInput ) > 0.1f ) )
+		if (Mathf.Abs (steerInput) > 0.1f)
 		{
-			transform.Translate( new Vector3( steerInput, 0f, gasInput ) * moveSpeed * Time.deltaTime );
+			angle = steerInput * maxRotation;//transform.Translate( new Vector3( steerInput, 0f, gasInput ) * moveSpeed * Time.deltaTime );
 		}
+		else
+		{
+            angle = 0;
+		}
+        if (Mathf.Abs(gasInput) > 0.1f)
+        {
+            power = 2*powerMultiplier*gasInput;
+        }
+        else
+        {
+            power = 0;
+        }
 	}
 }
