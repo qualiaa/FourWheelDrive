@@ -10,7 +10,7 @@ public class Wheel : MonoBehaviour {
 	public float maxRotation = 45;
     [HideInInspector] public float power = 0;
 	float angle = 0;
-    float powerMultiplier = 7500;
+    float powerMultiplier = 10000;
 
     public Vector3 direction
     {
