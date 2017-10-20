@@ -12,7 +12,8 @@ public class SessionData
 }
 
 public class GameManager : MonoBehaviour {
-
+	
+	private const float gameTime = 60f;
 	public static GameManager gm;
 	private void Awake() { gm = this; }
 
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject gameUIElement;
 	public TMP_Text gameTimer;
+
+	public ScoreboardUI scoreboardUI;
 
 	PickupManager pickupManager;
 	SessionData sessionData;
@@ -65,7 +68,7 @@ public class GameManager : MonoBehaviour {
 		gameUIElement.SetActive( true );
 		sessionData = new SessionData
 		{
-			gameEndTime = Time.time + 10f,
+			gameEndTime = Time.time + gameTime,
 			isPlaying = true
 		};
 
@@ -93,6 +96,7 @@ public class GameManager : MonoBehaviour {
 	{
 		sessionData.isPlaying = false;
 		gameUIElement.SetActive( false );
+		scoreboardUI.ShowScore( sessionData );
 		if( OnGameEndMethods != null)
 			OnGameEndMethods();
 	}
