@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 639aaaf30838a624cbcbe5c70a50d41d
-timeCreated: 1508514956
+guid: 010779b6a19d8f24f8a3b4381310c266
+timeCreated: 1508523750
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -804,7 +804,7 @@ ModelImporter:
     4300004: CharacterReference:CockyGuy_Style
     4300006: CharacterReference:Scientist_Style
     4300008: CharacterReference:Jeep_Style
-    7400000: Idle
+    7400000: LeanRight
     9500000: //RootNode
     13700000: CharacterReference:Captain_Style
     13700002: CharacterReference:CockyGuy_Style
@@ -816,27 +816,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CharacterReference_CockyDude
-    second: {fileID: 2100000, guid: 200d40a81af304e4d94466c3558617b0, type: 2}
+    second: {fileID: 2100000, guid: 9f7780dafaf9c564c91c14f98eac6116, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CharacterReference_JeepGuy
-    second: {fileID: 2100000, guid: 7610b25a42d2c584d962a2a91400ba12, type: 2}
+    second: {fileID: 2100000, guid: 9b8ff313417dc1c49b010b20defa0e3f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CharacterReference_ModelBaseTexture
-    second: {fileID: 2100000, guid: 35cb94596e935d84a82f2466f55c2b77, type: 2}
+    second: {fileID: 2100000, guid: 02e081b45716cc044816b9f85457d338, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CharacterReference_ScientistMat
-    second: {fileID: 2100000, guid: 441d974cfae6c984ab4fa710c43946e9, type: 2}
+    second: {fileID: 2100000, guid: 4b0c3e37089683b49a83fa20a0bf4ff4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CharacterReference_lambert3
-    second: {fileID: 2100000, guid: d5d201dd257d5504992bc7f99ace2308, type: 2}
+    second: {fileID: 2100000, guid: f7530f780edff6545a6aef6dcbb55891, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -864,7 +864,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: LeanRight
       takeName: Take 001
       firstFrame: 1
       lastFrame: 34
