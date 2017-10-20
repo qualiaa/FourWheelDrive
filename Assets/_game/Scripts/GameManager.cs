@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class SessionData
 {
@@ -113,6 +114,7 @@ public class GameManager : MonoBehaviour {
 		}
 		sessionData.pickupsCollected++;
 		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
+		gameScoreText.transform.DOPunchScale( Vector3.one * 0.2f, 0.5f );
 	}
 
 	public bool IsPlaying()
