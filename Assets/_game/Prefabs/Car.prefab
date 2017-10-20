@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1988845078814774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.93, z: 0}
+  m_LocalPosition: {x: 0, y: 0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4486737694367976}
@@ -497,6 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 2
   moveSpeed: 3
+  maxRotation: 35
 --- !u!114 &114707773200462760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,6 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 3
   moveSpeed: 3
+  maxRotation: 35
 --- !u!114 &114780381824028642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -523,6 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 1
   moveSpeed: 3
+  maxRotation: 45
 --- !u!114 &114895164424722042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -539,7 +542,7 @@ MonoBehaviour:
   - {fileID: 114780381824028642}
   - {fileID: 114644753202638280}
   - {fileID: 114707773200462760}
-  body_: {fileID: 65035524570051522}
+  body_: {fileID: 54865125992447284}
 --- !u!114 &114971587137085848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -553,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 0
   moveSpeed: 3
+  maxRotation: 45
 --- !u!146 &146258954810606894
 WheelCollider:
   m_ObjectHideFlags: 1

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Car : MonoBehaviour {
 
 	public Wheel[] wheels;
-	public Collider body_;
+    public Rigidbody body_;
 
 	float direction; // direction of front of car from 0-360
     float wheelBase;
@@ -50,8 +50,8 @@ public class Car : MonoBehaviour {
             var prod = Vector3.Cross(topAxleDirection, botAxleDirection);
             var wheelParity = Mathf.Sign(prod.y);
 
-            Debug.Log("Wheel prod: " + prod.ToString());
-            Debug.Log("Wheel parity: " + wheelParity);
+            //Debug.Log("Wheel prod: " + prod.ToString());
+            //Debug.Log("Wheel parity: " + wheelParity);
 
             //var totalParity = wheelParity * topAxleParity * botAxleParity;
             //Debug.Log("Total parity: " + totalParity);
@@ -76,26 +76,28 @@ public class Car : MonoBehaviour {
                 units = (topAxlePosition.z - botAxlePosition.z + (topNorm.z / topNorm.x) * (botAxlePosition.x - topAxlePosition.x)) / (botNorm.z - (topNorm.z / topNorm.x) * botNorm.x);
                 circleCentre = botAxlePosition + units * botNorm;
             } else {
-                Debug.Log("topNorm.x is zero");
                 units = (botAxlePosition.z - topAxlePosition.z + (botNorm.z / botNorm.x) * (topAxlePosition.x - botAxlePosition.x)) / (topNorm.z - (botNorm.z / botNorm.x) * topNorm.x);
                 circleCentre = topAxlePosition + units * topNorm;
             }
-            Debug.Log("Units: " + units);
-            Debug.Log("Circle centre: " + circleCentre);
+            //Debug.Log("Units: " + units);
+            //Debug.Log("Circle centre: " + circleCentre);
 
             var c = 2 * Mathf.PI * circleCentre.magnitude;
-            var mass = body_.attachedRigidbody.mass;
-            var v = body_.attachedRigidbody.velocity.magnitude;
+            var mass = body_.mass;
+            var v = body_.velocity.magnitude;
+            Debug.Log(v);
             v += 10f; // hack
             var w = 180 * v / c / Mathf.PI;
 
-            float frame_rotation = -1 * w * Mathf.Sign(totalForce.z) * wheelParity * Time.fixedDeltaTime;
-            Debug.Log("Rotation in frame: " + frame_rotation);
+            //Quaternion.Angle(transform.rotation, 
+
+            float frameRotation = -1 * w * Mathf.Sign(totalForce.z) * wheelParity * Time.fixedDeltaTime;
+            //Debug.Log("Rotation in frame: " + frame_rotation);
  
-            transform.Rotate(0, frame_rotation, 0);
+            transform.Rotate(0, frameRotation, 0);
         }
 
 
-        body_.attachedRigidbody.AddRelativeForce(totalForce);
+        body_.AddRelativeForce(totalForce);
 	}
 }
