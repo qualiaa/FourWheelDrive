@@ -44,7 +44,7 @@ public class Car : MonoBehaviour {
                 engineSource.clip = engineIdle;
                 engineSource.Play();
             }
-        }
+        }/*
         else
         {
             int numActiveWheels = 0;
@@ -73,7 +73,7 @@ public class Car : MonoBehaviour {
                 engineSource.clip = appropriateClip;
                 engineSource.Play();
             }
-        }
+        }*/
     }
 
     void HandlePhysics()
