@@ -7,12 +7,10 @@ public class Wheel : MonoBehaviour {
 
 	public int playerId = 0; // The Rewired player id of this character
 
-
-	public float moveSpeed = 3.0f;
-	float maxRotation = 45;
-	float power = 0;
+	public float maxRotation = 45;
+	public float power = 0;
 	float angle = 0;
-    float powerMultiplier = 5000;
+    float powerMultiplier = 7500;
 
     public Vector3 direction
     {
@@ -69,7 +67,7 @@ public class Wheel : MonoBehaviour {
 		}
         if (Mathf.Abs(gasInput) > 0.1f)
         {
-            power = 2*powerMultiplier*gasInput;
+            power = powerMultiplier*gasInput;
         }
         else
         {
