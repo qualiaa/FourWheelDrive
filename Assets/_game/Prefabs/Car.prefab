@@ -50311,6 +50311,8 @@ MonoBehaviour:
   motes: {fileID: 198354944765781864}
   clouds: {fileID: 198926660760937868}
   carInitiate: {fileID: 198148185432818286}
+  animator: {fileID: 95341805627745168}
+  steeringWheel: {fileID: 4273131714560254}
 --- !u!114 &114251006248404930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50563,6 +50565,8 @@ MonoBehaviour:
   motes: {fileID: 198144372547416498}
   clouds: {fileID: 198709844471937834}
   carInitiate: {fileID: 198958840132301412}
+  animator: {fileID: 95276077202652858}
+  steeringWheel: {fileID: 4990344598028584}
 --- !u!114 &114644753202638280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50715,6 +50719,8 @@ MonoBehaviour:
   motes: {fileID: 198991334603036772}
   clouds: {fileID: 198552119841991704}
   carInitiate: {fileID: 198480017245098998}
+  animator: {fileID: 95318646456623236}
+  steeringWheel: {fileID: 4817009996000034}
 --- !u!114 &114780381824028642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50755,6 +50761,8 @@ MonoBehaviour:
   motes: {fileID: 198609564737760946}
   clouds: {fileID: 198658203714252068}
   carInitiate: {fileID: 198433294675237216}
+  animator: {fileID: 95753388898508328}
+  steeringWheel: {fileID: 4448458390036296}
 --- !u!114 &114888092267619278
 MonoBehaviour:
   m_ObjectHideFlags: 1

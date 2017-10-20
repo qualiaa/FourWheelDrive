@@ -12,6 +12,8 @@ public class WheelParticle : MonoBehaviour {
 	public ParticleSystem motes;
 	public ParticleSystem clouds;
 	public ParticleSystem carInitiate;
+	public Animator animator;
+	public Transform steeringWheel;
 
 	// Use this for initialization
 	void Start () 
@@ -27,6 +29,15 @@ public class WheelParticle : MonoBehaviour {
 		SetEmissionRate( motes, 1f );
 		transform.Rotate( Vector3.right * wheel.power * rotationSpeed * Time.deltaTime );
 		TryInitiateWheelTurnParticle();
+		SetLeanDirection();
+	}
+
+	private void SetLeanDirection()
+	{
+		animator.SetFloat( "LeanDirection", wheel.player.GetAxis( RewiredConsts.Action.Steer ), 0.1f, Time.deltaTime );
+		steeringWheel.localRotation = Quaternion.Euler( 0f, 0f, Mathf.Lerp( 70f, -70f, 
+		                                                                   ( wheel.player.GetAxis( RewiredConsts.Action.Steer ) + 1 ) / 2
+		                                                                  ) );
 	}
 
 	private void SetEmissionRate( ParticleSystem ps, float multiplier )
