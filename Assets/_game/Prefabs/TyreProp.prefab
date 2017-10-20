@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23483342104681546}
   - component: {fileID: 54233962540126186}
   m_Layer: 0
-  m_Name: Tyre
+  m_Name: TyreProp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
