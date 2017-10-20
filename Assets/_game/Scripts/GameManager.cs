@@ -13,7 +13,7 @@ public class SessionData
 
 public class GameManager : MonoBehaviour {
 	
-	private const float gameTime = 60f;
+	public float gameTime = 60f;
 	public static GameManager gm;
 	private void Awake() { gm = this; }
 

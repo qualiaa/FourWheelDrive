@@ -12,19 +12,18 @@ public class Wheel : MonoBehaviour {
 	float maxRotation = 45;
 	float power = 0;
 	float angle = 0;
-    float powerMultiplier = 5;
+    float powerMultiplier = 5000;
 
     public Vector3 direction
     {
         get {
-            return new Vector3 (Mathf.Sin(angle * Mathf.PI / 180), 0, Mathf.Cos(angle * Mathf.PI / 180));
+            return new Vector3(Mathf.Sin(angle * Mathf.PI / 180), 0, Mathf.Cos(angle * Mathf.PI / 180));
         }
     }
 	public Vector3 totalForce
 	{
-		get { 
-			Debug.Log("Power: " + power);
-			return new Vector3 (Mathf.Sin(angle * Mathf.PI / 180) * power, 0, Mathf.Cos(angle * Mathf.PI / 180) * power);
+		get {
+            return direction * power;
 		}
 	}
 
