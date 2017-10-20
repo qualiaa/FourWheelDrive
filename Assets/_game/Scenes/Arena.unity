@@ -4315,7 +4315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85a296dea0af4d58bff24055bf4208b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 60
+  gameTime: 180
   currentState: 1
   menuUIElement: {fileID: 1931584161}
   gameUIElement: {fileID: 2054591525}
