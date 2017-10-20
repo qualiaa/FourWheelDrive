@@ -20,10 +20,8 @@ public class PlayerHonk : MonoBehaviour {
         //{
             if (player.GetButtonDown(RewiredConsts.Action.Honk))
             {
-                if (!honk.isPlaying)
-				{
+
 					PlaySoundsAndParticle();
-				}
 			}
         /*}
         else {
@@ -48,7 +46,7 @@ public class PlayerHonk : MonoBehaviour {
 	private void PlaySoundsAndParticle()
 	{
 		honk.Play();
-
+		ps.Play();
 	}
 
 }
