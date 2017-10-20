@@ -3652,7 +3652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1617620497944584
 GameObject:
   m_ObjectHideFlags: 1
@@ -4249,7 +4249,6 @@ GameObject:
   - component: {fileID: 95545558897577514}
   - component: {fileID: 114758560521306592}
   - component: {fileID: 114993808761297590}
-  - component: {fileID: 114786713493677642}
   - component: {fileID: 114323857918090870}
   m_Layer: 0
   m_Name: AllCharBase
@@ -4833,7 +4832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1814353809534474
 GameObject:
   m_ObjectHideFlags: 1
@@ -11285,7 +11284,7 @@ Transform:
   m_GameObject: {fileID: 1818529081850770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.73, y: 0.81999993, z: 1.17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4968631266246620}
   - {fileID: 4747209493734976}
@@ -12190,61 +12189,6 @@ MonoBehaviour:
     maintainRotationWeight: 0
     bendModifierWeight: 1
     bendGoal: {fileID: 0}
---- !u!114 &114786713493677642
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1700573414165780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db3c450680fd4c809d5ad90a2f24e5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fixTransforms: 1
-  solver:
-    IKPosition: {x: 0.3517996, y: 1.2095813, z: -0.18842083}
-    IKPositionWeight: 1
-    root: {fileID: 4747209493734976}
-    target: {fileID: 4301089659723278}
-    IKRotationWeight: 1
-    IKRotation: {x: 0.5707894, y: -0.4623897, z: -0.5584897, w: 0.38533753}
-    bendNormal: {x: -0.05700816, y: -0.04060865, z: 0.013211526}
-    bone1:
-      transform: {fileID: 4369811013110382}
-      weight: 1
-      solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0, w: 1}
-      defaultLocalPosition: {x: -4.5964468e-10, y: 0.12892303, z: -0.00000000501483}
-      defaultLocalRotation: {x: 0.33420253, y: -0.012257312, z: 0.089503534, w: 0.93816185}
-      length: 0
-      sqrMag: 0
-      axis: {x: -1, y: -0, z: -0}
-    bone2:
-      transform: {fileID: 4760585308478972}
-      weight: 1
-      solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0, w: 1}
-      defaultLocalPosition: {x: -4.390271e-11, y: 0.25440863, z: 0.00000000198465}
-      defaultLocalRotation: {x: -0.0063933064, y: 0.019309402, z: 0.516212, w: 0.8562193}
-      length: 0
-      sqrMag: 0
-      axis: {x: -1, y: -0, z: -0}
-    bone3:
-      transform: {fileID: 4921879877574292}
-      weight: 1
-      solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0, w: 1}
-      defaultLocalPosition: {x: 0.0000000013406811, y: 0.24177688, z: -0.000000005236846}
-      defaultLocalRotation: {x: 0.14544317, y: -0.34955114, z: -0.23340786, w: 0.8956456}
-      length: 0
-      sqrMag: 0
-      axis: {x: -1, y: -0, z: -0}
-    goal: 0
-    bendModifier: 0
-    maintainRotationWeight: 0
-    bendModifierWeight: 1
-    bendGoal: {fileID: 0}
 --- !u!114 &114993808761297590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12314,7 +12258,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f3c90463d2aeb4f489e5149a17e7545c, type: 2}
+  - {fileID: 2100000, guid: 060d147fdf2b9154cba146d447b84364, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
