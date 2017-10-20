@@ -30,7 +30,8 @@ public class Wheel : MonoBehaviour {
 		get { return angle; } //  angle / (1 + velocity) ; }
 	}	
 
-	private Player player; // The Rewired Player
+	[HideInInspector]
+	public Player player; // The Rewired Player
 	private float steerInput;
 	private float gasInput;
 
