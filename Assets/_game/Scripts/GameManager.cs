@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class SessionData
 {
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour {
 
 	public void StartGame()
 	{
+		CamShaker.instance.ShakeStart();
 		menuUIElement.SetActive( false );
 		gameUIElement.SetActive( true );
 		sessionData = new SessionData
@@ -113,6 +115,8 @@ public class GameManager : MonoBehaviour {
 		}
 		sessionData.pickupsCollected++;
 		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
+		gameScoreText.transform.DOPunchScale( Vector3.one * 0.2f, 0.5f );
+		CamShaker.instance.ShakePickup();
 	}
 
 	public bool IsPlaying()
