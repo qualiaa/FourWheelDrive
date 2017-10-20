@@ -131,7 +131,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -211,3 +211,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 1
   honk: {fileID: 82486333960983434}
+  ps: {fileID: 0}

@@ -16,8 +16,8 @@ public class PlayerHonk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (playerId != 1) // military player has loop
-        {
+        //if (playerId != 1) // military player has loop
+        //{
             if (player.GetButtonDown(RewiredConsts.Action.Honk))
             {
                 if (!honk.isPlaying)
@@ -25,7 +25,7 @@ public class PlayerHonk : MonoBehaviour {
 					PlaySoundsAndParticle();
 				}
 			}
-        }
+        /*}
         else {
             if (player.GetButton (RewiredConsts.Action.Honk))
             {
@@ -41,7 +41,7 @@ public class PlayerHonk : MonoBehaviour {
                     honk.Stop();
                 }
             }
-        }
+        }*/
 	}
 
 	[ContextMenu("PlaySound")]
