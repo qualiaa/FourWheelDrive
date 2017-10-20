@@ -8,7 +8,7 @@ public class Wheel : MonoBehaviour {
 	public int playerId = 0; // The Rewired player id of this character
 
 	public float maxRotation = 45;
-	public float power = 0;
+    [HideInInspector] public float power = 0;
 	float angle = 0;
     float powerMultiplier = 7500;
 
