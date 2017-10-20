@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject gameUIElement;
 	public TMP_Text gameTimer;
+	public TMP_Text gameScoreText;
 
 	public ScoreboardUI scoreboardUI;
 
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour {
 			gameEndTime = Time.time + gameTime,
 			isPlaying = true
 		};
+		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
 
 		pickupManager.StartSpawning();
 	}
@@ -99,6 +101,12 @@ public class GameManager : MonoBehaviour {
 		scoreboardUI.ShowScore( sessionData );
 		if( OnGameEndMethods != null)
 			OnGameEndMethods();
+	}
+
+	public void IncreaseScore()
+	{
+		sessionData.pickupsCollected++;
+		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
 	}
 
 	public bool IsPlaying()

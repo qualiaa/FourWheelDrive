@@ -34,7 +34,7 @@ public class Pickup : MonoBehaviour {
 			StartBlinking();
 
 		if( time <= 0f )
-			Destroy( this.gameObject );
+			Destroy( gameObject );
 	}
 
 	Color textColor0 = Color.white;
@@ -46,6 +46,12 @@ public class Pickup : MonoBehaviour {
 	{
 		blinking = true;
 		DOTween.To( () => textAlpha, x => textAlpha = x, 1f, 0.5f ).SetLoops( -1 ).OnUpdate( SetTextColor );
+	}
+
+	private void OnTriggerEnter( Collider other )
+	{
+		GameManager.gm.IncreaseScore();
+		Destroy(gameObject);
 	}
 
 	void SetTextColor()
