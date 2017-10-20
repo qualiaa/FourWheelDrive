@@ -8,6 +8,7 @@ public class PlayerHonk : MonoBehaviour {
     public int playerId = 0; // The Rewired player id of this character
     public AudioSource honk;
     [HideInInspector] Player player;
+	public ParticleSystem ps;
 
     void Awake () {
         player = ReInput.players.GetPlayer( playerId );
@@ -20,17 +21,17 @@ public class PlayerHonk : MonoBehaviour {
             if (player.GetButtonDown(RewiredConsts.Action.Honk))
             {
                 if (!honk.isPlaying)
-                {
-                    honk.Play();
-                }
-            }
+				{
+					PlaySoundsAndParticle();
+				}
+			}
         }
         else {
             if (player.GetButton (RewiredConsts.Action.Honk))
             {
                 if (!honk.isPlaying)
                 {
-                    honk.Play();
+                    PlaySoundsAndParticle();
                 }
             }
             else
@@ -42,4 +43,12 @@ public class PlayerHonk : MonoBehaviour {
             }
         }
 	}
+
+	[ContextMenu("PlaySound")]
+	private void PlaySoundsAndParticle()
+	{
+		honk.Play();
+
+	}
+
 }
