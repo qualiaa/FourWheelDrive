@@ -36,6 +36,14 @@ public class Wheel : MonoBehaviour {
 
 	void Awake() 
 	{
+		if( DevTools.instance.twoControllersToRuleThemAll )
+		{
+			if( playerId == 0 || playerId == 1)
+				player = ReInput.players.GetPlayer( 0 );
+			else
+				player = ReInput.players.GetPlayer( 1 );
+			return;
+		}
 		// Get the Rewired Player object for this player and keep it for the duration of the character's lifetime
 		player = ReInput.players.GetPlayer(playerId);
 	}

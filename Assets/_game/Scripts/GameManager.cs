@@ -9,6 +9,7 @@ public class SessionData
 	public int pickupsCollected;
 	public float gameEndTime;
 	public bool isPlaying;
+	public bool firstPickupPickedUp;
 }
 
 public class GameManager : MonoBehaviour {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject gameUIElement;
 	public TMP_Text gameTimer;
+	public TMP_Text gameScoreText;
 
 	public ScoreboardUI scoreboardUI;
 
@@ -71,8 +73,9 @@ public class GameManager : MonoBehaviour {
 			gameEndTime = Time.time + gameTime,
 			isPlaying = true
 		};
+		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
 
-		pickupManager.StartSpawning();
+		pickupManager.SpawnFirstPickup();
 	}
 
 	// Update is called once per frame
@@ -99,6 +102,17 @@ public class GameManager : MonoBehaviour {
 		scoreboardUI.ShowScore( sessionData );
 		if( OnGameEndMethods != null)
 			OnGameEndMethods();
+	}
+
+	public void IncreaseScore()
+	{
+		if( !sessionData.firstPickupPickedUp )
+		{
+			sessionData.firstPickupPickedUp = true;
+			pickupManager.StartContinuousSpawning();
+		}
+		sessionData.pickupsCollected++;
+		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
 	}
 
 	public bool IsPlaying()
