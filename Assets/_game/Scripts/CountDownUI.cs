@@ -32,10 +32,12 @@ public class CountDownUI : MonoBehaviour {
 		{
 			text.SetText( i.ToString() );
 			text.transform.localScale = Vector3.zero;
+			CamShaker.instance.ShakeCountdown();
 			yield return text.transform.DOScale( Vector3.one * 3, 1f ).WaitForCompletion();
 		}
 		GameManager.gm.StartGame();
 		text.SetText( "GO!" );
+		CamShaker.instance.ShakeCountdown();
 		text.transform.localScale = Vector3.zero;
 		yield return text.transform.DOScale( Vector3.one * 3, 1f ).WaitForCompletion();
 		gameObject.SetActive( false );
