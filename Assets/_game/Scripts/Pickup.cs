@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class Pickup : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class Pickup : MonoBehaviour {
 
 	bool blinking;
 
+	const float secondsLeftForBlink = 5f;
+
 	// Use this for initialization
 	public void SetTime( float time ) 
 	{
@@ -18,20 +21,34 @@ public class Pickup : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
 		time -= Time.deltaTime;
+		float decialTextSize = 5f;
 
-		float timeDecimals = ( time - Mathf.Floor( time ) ) * 100;
+		string secondsText = SplashJam.Utils.GetSecondsAndMinutesText( time, decialTextSize );
+		textMesh.SetText( secondsText );
 
-		textMesh.SetText( string.Format( "{0}<size=5>.{1}</size>", time.ToString("0"), timeDecimals.ToString( "00" ) ) );
+		if( !blinking && time <= secondsLeftForBlink)
+			StartBlinking();
 
-		if( time <= 0f)
+		if( time <= 0f )
 			Destroy( this.gameObject );
 	}
 
+	Color textColor0 = Color.white;
+	Color textColor1 = Color.red;
+
+	float textAlpha;
+
 	void StartBlinking()
 	{
-		// implement later
+		blinking = true;
+		DOTween.To( () => textAlpha, x => textAlpha = x, 1f, 0.5f ).SetLoops( -1 ).OnUpdate( SetTextColor );
+	}
+
+	void SetTextColor()
+	{
+		textMesh.color = textAlpha > .5f ? textColor0 : textColor1;
 	}
 }
