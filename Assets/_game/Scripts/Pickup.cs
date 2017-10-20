@@ -9,7 +9,7 @@ public class Pickup : MonoBehaviour {
 
 	public TMP_Text textMesh;
 
-	float time;
+	float time = -100f;
 
 	bool blinking;
 
@@ -18,12 +18,21 @@ public class Pickup : MonoBehaviour {
 	// Use this for initialization
 	public void SetTime( float time ) 
 	{
+		if( time < -99f )
+		{
+			textMesh.gameObject.SetActive( false );
+			return;
+		}
+		
 		this.time = time;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if( time < -99f )
+			return;
+		
 		time -= Time.deltaTime;
 		float decialTextSize = 5f;
 

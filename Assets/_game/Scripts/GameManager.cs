@@ -9,6 +9,7 @@ public class SessionData
 	public int pickupsCollected;
 	public float gameEndTime;
 	public bool isPlaying;
+	public bool firstPickupPickedUp;
 }
 
 public class GameManager : MonoBehaviour {
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour {
 		};
 		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
 
-		pickupManager.StartSpawning();
+		pickupManager.SpawnFirstPickup();
 	}
 
 	// Update is called once per frame
@@ -105,6 +106,11 @@ public class GameManager : MonoBehaviour {
 
 	public void IncreaseScore()
 	{
+		if( !sessionData.firstPickupPickedUp )
+		{
+			sessionData.firstPickupPickedUp = true;
+			pickupManager.StartContinuousSpawning();
+		}
 		sessionData.pickupsCollected++;
 		gameScoreText.SetText( "Pickups: " + sessionData.pickupsCollected.ToString() );
 	}

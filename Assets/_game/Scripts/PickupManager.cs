@@ -11,10 +11,15 @@ public class PickupManager : MonoBehaviour
 	float timeForNextSpawn = -1f;
 
 	// Use this for initialization
-	public void StartSpawning()
+	public void SpawnFirstPickup()
+	{
+		SpawnPickup( false );
+		GameManager.OnGameEndMethods += OnGameEnd;
+	}
+
+	public void StartContinuousSpawning()
 	{
 		SpawnPickupsAndSetNewTime();
-		GameManager.OnGameEndMethods += OnGameEnd;
 	}
 
 	void OnGameEnd()
@@ -23,9 +28,13 @@ public class PickupManager : MonoBehaviour
 		timeForNextSpawn = -1f;
 	}
 
-	private float SpawnPickup()
+	private float SpawnPickup( bool withTimer )
 	{
-		float destroyTime = Random.Range( 10f, 15f );
+		float destroyTime;
+		if( withTimer )
+			destroyTime = Random.Range( 10f, 15f );
+		else
+			destroyTime = -100f;
 		GetRandomPickupToSpawnOn().SpawnPickup( pickupPrefab, destroyTime );
 		return destroyTime;
 	}
@@ -58,8 +67,8 @@ public class PickupManager : MonoBehaviour
 	private void SpawnPickupsAndSetNewTime()
 	{
 		float longestDestroyTime = 0f;
-		longestDestroyTime = SpawnPickup();
-		float destroyTime = SpawnPickup();
+		longestDestroyTime = SpawnPickup( true );
+		float destroyTime = SpawnPickup( true );
 		if( destroyTime > longestDestroyTime )
 			longestDestroyTime = destroyTime;
 
