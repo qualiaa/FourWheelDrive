@@ -72,6 +72,31 @@ ModelImporter:
     100128: transform8
     100130: transform9
     100132: Wheels
+    100134: polySurface75 1
+    100136: polySurface92 1
+    100138: polySurface95
+    100140: transform11
+    100142: transform12
+    100144: transform13
+    100146: transform14
+    100148: transform15
+    100150: transform16
+    100152: transform17
+    100154: transform18
+    100156: transform19
+    100158: transform20
+    100160: transform21
+    100162: transform22
+    100164: transform23
+    100166: transform24
+    100168: transform25
+    100170: transform26
+    100172: transform27
+    100174: transform28
+    100176: transform29
+    100178: transform30
+    100180: transform31
+    100182: transform32
     400000: Car
     400002: LB_Wheel
     400004: LF_Wheel
@@ -139,6 +164,31 @@ ModelImporter:
     400128: transform8
     400130: transform9
     400132: Wheels
+    400134: polySurface75 1
+    400136: polySurface92 1
+    400138: polySurface95
+    400140: transform11
+    400142: transform12
+    400144: transform13
+    400146: transform14
+    400148: transform15
+    400150: transform16
+    400152: transform17
+    400154: transform18
+    400156: transform19
+    400158: transform20
+    400160: transform21
+    400162: transform22
+    400164: transform23
+    400166: transform24
+    400168: transform25
+    400170: transform26
+    400172: transform27
+    400174: transform28
+    400176: transform29
+    400178: transform30
+    400180: transform31
+    400182: transform32
     2300000: LB_Wheel
     2300002: LF_Wheel
     2300004: polySurface67
@@ -175,6 +225,7 @@ ModelImporter:
     2300066: SteeringWheel 1
     2300068: SteeringWheel 2
     2300070: SteeringWheel 3
+    2300072: polySurface95
     3300000: LB_Wheel
     3300002: LF_Wheel
     3300004: polySurface67
@@ -211,6 +262,7 @@ ModelImporter:
     3300066: SteeringWheel 1
     3300068: SteeringWheel 2
     3300070: SteeringWheel 3
+    3300072: polySurface95
     4300000: LF_Wheel
     4300002: RF_Wheel
     4300004: LB_Wheel
@@ -247,23 +299,25 @@ ModelImporter:
     4300066: polySurface81
     4300068: polySurface87
     4300070: polySurface90
+    4300072: polySurface95
+    7400000: Take 001
     9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bace
-    second: {fileID: 2100000, guid: a7f07873e340c1a478cd026bb5aab824, type: 2}
+    second: {fileID: 2100000, guid: eb9ade3cffa35ac4eb61a8c85c29dea5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Seat1
-    second: {fileID: 2100000, guid: e99e2a6acbe7f304fa2b7d30854cb32b, type: 2}
+    second: {fileID: 2100000, guid: 102f10d4a3c2d0c499ab77d405c6d1e5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wheel
-    second: {fileID: 2100000, guid: a761995c894d78d40b9fc0d68390fc27, type: 2}
+    second: {fileID: 2100000, guid: 0903249c959e3dd40a7993ae2d50aa07, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
