@@ -28,19 +28,15 @@ public class PlayerHonk : MonoBehaviour {
         else {
             if (player.GetButton (RewiredConsts.Action.Honk))
             {
-                Debug.Log("Button down");
                 if (!honk.isPlaying)
                 {
-                    Debug.Log("Honk wasn't playing");
                     honk.Play();
                 }
             }
             else
             {
-                Debug.Log("Button not down");
                 if (honk.isPlaying)
                 {
-                    Debug.Log("Honk was playing");
                     honk.Stop();
                 }
             }
