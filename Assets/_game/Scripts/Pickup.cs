@@ -17,6 +17,13 @@ public class Pickup : MonoBehaviour {
 
 	public ParticleSystem explostionParticle;
 
+    AudioSource smashSound;
+
+    public void Start()
+    {
+        smashSound = GameObject.Find("Pickup Sound Source").GetComponent<AudioSource>();
+    }
+
 	// Use this for initialization
 	public void SetTime( float time ) 
 	{
@@ -62,6 +69,7 @@ public class Pickup : MonoBehaviour {
 	private void OnTriggerEnter( Collider other )
 	{
 		Instantiate( explostionParticle, transform.position, Quaternion.Euler( -90f, 0f, 0f ) );
+        smashSound.Play();
 		GameManager.gm.IncreaseScore();
 		Destroy(gameObject);
 	}
