@@ -37,6 +37,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4877724419232690}
+  - component: {fileID: 114804247234229768}
+  - component: {fileID: 114068391255846442}
   m_Layer: 0
   m_Name: Dust_trail_basic
   m_TagString: Untagged
@@ -81,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765174340585180}
   m_LocalRotation: {x: 0.02547551, y: -0.031025944, z: 0.00079104, w: 0.99919355}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.48, z: -0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4928382300136322}
@@ -195,6 +197,32 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114068391255846442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765174340585180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba999b0bf71e4642b2583fffdca93bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motes: {fileID: 198587257466618948}
+  clouds: {fileID: 198694476857628054}
+--- !u!114 &114804247234229768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765174340585180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba999b0bf71e4642b2583fffdca93bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motes: {fileID: 198587257466618948}
+  clouds: {fileID: 198694476857628054}
 --- !u!198 &198587257466618948
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -255,7 +283,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2002646150
+  randomSeed: 209088957
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3572,7 +3600,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -750480009
+  randomSeed: 405413083
   InitialModule:
     serializedVersion: 3
     enabled: 1

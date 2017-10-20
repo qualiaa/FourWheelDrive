@@ -30,7 +30,8 @@ public class Wheel : MonoBehaviour {
 		get { return angle; } //  angle / (1 + velocity) ; }
 	}	
 
-	private Player player; // The Rewired Player
+	[HideInInspector]
+	public Player player; // The Rewired Player
 	private float steerInput;
 	private float gasInput;
 
@@ -56,10 +57,15 @@ public class Wheel : MonoBehaviour {
 	}
 
 	private void GetInput() {
+		
 		// Get the input from the Rewired Player. All controllers that the Player owns will contribute, so it doesn't matter
 		// whether the input is coming from a joystick, the keyboard, mouse, or a custom controller.
 
 		steerInput = player.GetAxis( RewiredConsts.Action.Steer ); // get input by name or action id
+
+		if( !GameManager.gm.IsPlaying())
+			return;
+		
 		gasInput = player.GetAxis( RewiredConsts.Action.Gas ); // get input by name or action id
 	}
 

@@ -58,6 +58,18 @@ public class PickupManager : MonoBehaviour
 		if( timeForNextSpawn < 0f )
 			return;
 
+		bool pickupsAreSpawned = false;
+		for( int i = 0; i < pickupSpawnPoints.Length; i++ )
+		{
+			if( pickupSpawnPoints[i].HasPickup())
+				pickupsAreSpawned = true;
+		}
+		if( !pickupsAreSpawned )
+		{
+			SpawnPickupsAndSetNewTime();
+			return;
+		}
+
 		if( timeForNextSpawn > Time.time )
 			return;
 
