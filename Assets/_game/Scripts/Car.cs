@@ -6,6 +6,12 @@ public class Car : MonoBehaviour {
 
 	public Wheel[] wheels;
     public Rigidbody body_;
+    public AudioSource engineSource;
+    public AudioClip engineStart;
+    public AudioClip engineIdle;
+    public AudioClip enginePower1;
+    public AudioClip enginePower2;
+    public AudioClip enginePower3;
 
 	float direction; // direction of front of car from 0-360
     float wheelBase;
@@ -17,12 +23,63 @@ public class Car : MonoBehaviour {
 	void Start () {
 		axles_ = new Wheel[2, 2];
         wheelBase = wheels[1].transform.localPosition.x - wheels[0].transform.localPosition.x;
+        engineSource.clip = engineStart;
+        engineSource.Play();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () 
+    {
+        HandleAudio();
+        HandlePhysics();
+	}
+
+    void HandleAudio()
+    {
+        if (engineSource.clip == engineStart)
+        {
+            if (!engineSource.isPlaying)
+            {
+                engineSource.loop = true;
+                engineSource.clip = engineIdle;
+                engineSource.Play();
+            }
+        }
+        else
+        {
+            int numActiveWheels = 0;
+            foreach (var w in wheels)
+            {
+                numActiveWheels += w.active ? 1 : 0;
+            }
+            AudioClip appropriateClip;
+            switch (numActiveWheels)
+            {
+                case 0:
+                    appropriateClip = engineIdle;
+                    break;
+                case 1:
+                    appropriateClip = enginePower1;
+                    break;
+                case 4:
+                    appropriateClip = enginePower3;
+                    break;
+                default:
+                    appropriateClip = enginePower2;
+                    break;
+            }
+            if (engineSource.clip != appropriateClip)
+            {
+                engineSource.clip = appropriateClip;
+                engineSource.Play();
+            }
+        }
+    }
+
+    void HandlePhysics()
+    {
         Vector3 topAxleDirection = (wheels[0].direction + wheels[1].direction) / 2;
-		Vector3 botAxleDirection = (wheels[2].direction + wheels[3].direction) / 2;
+        Vector3 botAxleDirection = (wheels[2].direction + wheels[3].direction) / 2;
 
         var totalForce = Vector3.zero;
         foreach (var w in wheels)
@@ -55,7 +112,7 @@ public class Car : MonoBehaviour {
 
             //var totalParity = wheelParity * topAxleParity * botAxleParity;
             //Debug.Log("Total parity: " + totalParity);
-           
+
             Vector3 topNorm, botNorm;
             if (wheelParity < 0)
             {
@@ -93,11 +150,11 @@ public class Car : MonoBehaviour {
 
             float frameRotation = -1 * w * Mathf.Sign(totalForce.z) * wheelParity * Time.fixedDeltaTime;
             //Debug.Log("Rotation in frame: " + frame_rotation);
- 
+
             transform.Rotate(0, frameRotation, 0);
         }
 
 
         body_.AddRelativeForce(totalForce);
-	}
+    }
 }

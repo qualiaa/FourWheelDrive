@@ -9,6 +9,10 @@ public class Wheel : MonoBehaviour {
 
 	public float maxRotation = 45;
     [HideInInspector] public float power = 0;
+    public bool active
+    {
+        get { return Mathf.Abs(power) > 0.001; }
+    }
 	float angle = 0;
     float powerMultiplier = 10000;
 
