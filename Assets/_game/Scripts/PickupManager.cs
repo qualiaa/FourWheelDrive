@@ -14,6 +14,13 @@ public class PickupManager : MonoBehaviour
 	public void StartSpawning()
 	{
 		SpawnPickupsAndSetNewTime();
+		GameManager.OnGameEndMethods += OnGameEnd;
+	}
+
+	void OnGameEnd()
+	{
+		GameManager.OnGameEndMethods -= OnGameEnd;
+		timeForNextSpawn = -1f;
 	}
 
 	private float SpawnPickup()
