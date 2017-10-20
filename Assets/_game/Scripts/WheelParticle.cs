@@ -2,13 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class WheelParticle : MonoBehaviour {
+	
 	private const float rotationSpeed = 0.03f;
 	Wheel wheel;
 	Rigidbody rb;
 	public ParticleSystem motes;
 	public ParticleSystem clouds;
+	public ParticleSystem carInitiate;
 
 	// Use this for initialization
 	void Start () 
@@ -23,6 +26,7 @@ public class WheelParticle : MonoBehaviour {
 		SetEmissionRate( clouds, 10f );
 		SetEmissionRate( motes, 1f );
 		transform.Rotate( Vector3.right * wheel.power * rotationSpeed * Time.deltaTime );
+		TryInitiateWheelTurnParticle();
 	}
 
 	private void SetEmissionRate( ParticleSystem ps, float multiplier )
@@ -43,6 +47,22 @@ public class WheelParticle : MonoBehaviour {
 		else{
 			return Mathf.Lerp( 0, 4, Mathf.Abs( dot ) );
 		}
+	}
 
+	void TryInitiateWheelTurnParticle()
+	{
+		if( wheel.player.GetAxisPrev( RewiredConsts.Action.Gas ) > 0f &&
+		   	wheel.player.GetAxis( RewiredConsts.Action.Gas ) > 0f)
+			return;
+
+		if( wheel.player.GetAxisPrev( RewiredConsts.Action.Gas ) < 0f &&
+		   	wheel.player.GetAxis( RewiredConsts.Action.Gas ) < 0f )
+			return;
+
+		if( Math.Abs( wheel.player.GetAxis( RewiredConsts.Action.Gas ) ) < 0.01f )
+			return;
+
+
+		carInitiate.Play();
 	}
 }
