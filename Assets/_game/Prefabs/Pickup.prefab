@@ -363,6 +363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 114330814015037118}
+  explostionParticle: {fileID: 198140142055775786, guid: 5a9ed6db9661b694e9a5c3c9d5630590,
+    type: 2}
 --- !u!135 &135773407503778440
 SphereCollider:
   m_ObjectHideFlags: 1

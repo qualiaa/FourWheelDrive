@@ -15,6 +15,8 @@ public class Pickup : MonoBehaviour {
 
 	const float secondsLeftForBlink = 5f;
 
+	public ParticleSystem explostionParticle;
+
 	// Use this for initialization
 	public void SetTime( float time ) 
 	{
@@ -59,6 +61,7 @@ public class Pickup : MonoBehaviour {
 
 	private void OnTriggerEnter( Collider other )
 	{
+		Instantiate( explostionParticle, transform.position, Quaternion.Euler( -90f, 0f, 0f ) );
 		GameManager.gm.IncreaseScore();
 		Destroy(gameObject);
 	}
