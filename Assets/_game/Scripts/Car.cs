@@ -92,8 +92,8 @@ public class Car : MonoBehaviour {
 
         if (Mathf.Abs(Vector3.Dot(topAxleDirection.normalized, botAxleDirection.normalized)) < 0.98)
         {
-            Debug.Log("Top axle pos: " + topAxleDirection);
-            Debug.Log("Bot axle pos: " + botAxleDirection);
+            //Debug.Log("Top axle pos: " + topAxleDirection);
+            //Debug.Log("Bot axle pos: " + botAxleDirection);
             // axles not in same direction
             /*
             var forward = new Vector3(0, 0, 1); // toward front of car
@@ -142,7 +142,7 @@ public class Car : MonoBehaviour {
             var c = 2 * Mathf.PI * circleCentre.magnitude;
             var mass = body_.mass;
             var v = body_.velocity.magnitude;
-            Debug.Log(v);
+            //Debug.Log(v);
             v += 10f; // hack
             var w = 180 * v / c / Mathf.PI;
 
